@@ -1,0 +1,29 @@
+group 'bingotrack'
+version '1.0-SNAPSHOT'
+
+
+apply plugin: 'java'
+apply plugin: 'application'
+mainClassName = 'hooda.bingo.BingoTracker'
+
+sourceCompatibility = 1.8
+def lombokVersion = "1.16.18"
+def slf4jVersion = "1.7.13"
+def logbackVersion = "1.2.3"
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile "org.slf4j:slf4j-api:${slf4jVersion}"
+    compile("ch.qos.logback:logback-classic:${logbackVersion}") {
+        exclude group: 'org.slf4j', module: 'slf4j-api'
+    }
+    compile "org.projectlombok:lombok:${lombokVersion}"
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+run {
+    args += 'first_arg'
+}
