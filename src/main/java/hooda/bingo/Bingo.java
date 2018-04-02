@@ -1,8 +1,13 @@
 package hooda.bingo;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
 import java.util.List;
 
+@AllArgsConstructor
+@Getter
 public class Bingo {
-    private int year;
-    private List<BingoSquare> bingoSquares;
+    private final int year;
+    private final List<BingoSquare> bingoSquares;
 }
